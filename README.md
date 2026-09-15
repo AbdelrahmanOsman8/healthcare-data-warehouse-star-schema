@@ -62,7 +62,7 @@ The warehouse follows a **Star Schema** architecture.
 
 ---
 
-## ERD
+## Schema
 
 The Entity Relationship Diagram represents the relationships between the dimensions and fact tables.
 
