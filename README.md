@@ -8,16 +8,16 @@ The warehouse is designed to organize healthcare data into analytical **fact and
 
 The project focuses on:
 
-* Patient encounters
-* Healthcare providers
-* Hospital departments
-* Diagnoses
-* Medications
-* Patient flow
-* Waiting time
-* Length of stay
-* Treatment costs
-* Medication utilization
+- Patient encounters
+- Healthcare providers
+- Hospital departments
+- Diagnoses
+- Medications
+- Patient flow
+- Waiting time
+- Length of stay
+- Treatment costs
+- Medication utilization
 
 All data used in this project is simulated for educational purposes.
 
@@ -27,18 +27,18 @@ All data used in this project is simulated for educational purposes.
 
 The main objectives of this project are to:
 
-* Build a healthcare-focused Star Schema.
-* Design fact and dimension tables.
-* Organize healthcare data for analytical workloads.
-* Analyze patient encounters.
-* Monitor hospital department activity.
-* Analyze healthcare provider workload.
-* Analyze diagnoses and medication utilization.
-* Measure patient waiting time.
-* Analyze length of stay.
-* Calculate healthcare operational KPIs.
-* Apply advanced SQL analytical techniques.
-* Create pre-aggregated summary data for faster analysis.
+- Build a healthcare-focused Star Schema.
+- Design fact and dimension tables.
+- Organize healthcare data for analytical workloads.
+- Analyze patient encounters.
+- Monitor hospital department activity.
+- Analyze healthcare provider workload.
+- Analyze diagnoses and medication utilization.
+- Measure patient waiting time.
+- Analyze length of stay.
+- Calculate healthcare operational KPIs.
+- Apply advanced SQL analytical techniques.
+- Create pre-aggregated summary data for faster analysis.
 
 ---
 
@@ -48,25 +48,25 @@ The warehouse follows a **Star Schema** architecture.
 
 ### Dimension Tables
 
-* `dim_date`
-* `dim_patient`
-* `dim_provider`
-* `dim_department`
-* `dim_diagnosis`
-* `dim_medication`
+- `dim_date`
+- `dim_patient`
+- `dim_provider`
+- `dim_department`
+- `dim_diagnosis`
+- `dim_medication`
 
 ### Fact Tables
 
-* `fact_patient_encounter`
-* `fact_medication`
+- `fact_patient_encounter`
+- `fact_medication`
 
 ---
 
-## Schema
+## ERD
 
 The Entity Relationship Diagram represents the relationships between the dimensions and fact tables.
 
-![Healthcare Data Warehouse ERD](images/healthcare_data_warehouse_schema.png)
+![Healthcare Data Warehouse ERD](assets/erd/healthcare_data_warehouse_erd.png)
 
 ---
 
@@ -78,11 +78,11 @@ The central fact table is:
 
 It connects healthcare activity with:
 
-* Date
-* Patient
-* Provider
-* Department
-* Diagnosis
+- Date
+- Patient
+- Provider
+- Department
+- Diagnosis
 
 The medication fact table:
 
@@ -90,11 +90,11 @@ The medication fact table:
 
 connects medication events with:
 
-* Date
-* Patient
-* Provider
-* Medication
-* Patient Encounter
+- Date
+- Patient
+- Provider
+- Medication
+- Patient Encounter
 
 ---
 
@@ -108,9 +108,9 @@ The grain of this fact table is:
 
 Measures include:
 
-* Length of stay
-* Waiting time
-* Treatment cost
+- Length of stay
+- Waiting time
+- Treatment cost
 
 ### fact_medication
 
@@ -120,9 +120,9 @@ The grain of this fact table is:
 
 Measures include:
 
-* Quantity
-* Duration
-* Medication cost
+- Quantity
+- Duration
+- Medication cost
 
 ---
 
@@ -132,35 +132,35 @@ The data warehouse supports analytical questions such as:
 
 ### Patient Analytics
 
-* How many encounters does each patient have?
-* How many unique patients visit the hospital?
-* Which patients have frequent encounters?
-* How does patient volume change over time?
+- How many encounters does each patient have?
+- How many unique patients visit the hospital?
+- Which patients have frequent encounters?
+- How does patient volume change over time?
 
 ### Department Analytics
 
-* Which department has the highest patient volume?
-* Which department has the longest waiting time?
-* Which department generates the highest treatment cost?
-* How does department activity change monthly?
+- Which department has the highest patient volume?
+- Which department has the longest waiting time?
+- Which department generates the highest treatment cost?
+- How does department activity change monthly?
 
 ### Provider Analytics
 
-* Which healthcare providers handle the most encounters?
-* What is the workload of each provider?
-* Which providers have the highest patient volume?
+- Which healthcare providers handle the most encounters?
+- What is the workload of each provider?
+- Which providers have the highest patient volume?
 
 ### Clinical Analytics
 
-* What are the most common diagnoses?
-* Which diagnosis categories are most frequent?
-* What is the distribution of diagnosis severity?
+- What are the most common diagnoses?
+- Which diagnosis categories are most frequent?
+- What is the distribution of diagnosis severity?
 
 ### Medication Analytics
 
-* Which medications are used most frequently?
-* Which medications have the highest utilization?
-* What is the monthly medication cost?
+- Which medications are used most frequently?
+- Which medications have the highest utilization?
+- What is the monthly medication cost?
 
 ---
 
@@ -168,27 +168,27 @@ The data warehouse supports analytical questions such as:
 
 This project demonstrates several important SQL and Data Warehousing concepts:
 
-* Database Schema Design
-* Star Schema
-* Fact Tables
-* Dimension Tables
-* Primary Keys
-* Foreign Keys
-* Indexing
-* JOINs
-* GROUP BY
-* Aggregate Functions
-* CASE Statements
-* DISTINCT
-* Subqueries
-* Window Functions
-* `SUM() OVER()`
-* `DENSE_RANK()`
-* Running Totals
-* Ranking
-* Analytical Queries
-* Pre-aggregated Summary Tables
-* Healthcare KPI Analysis
+- Database Schema Design
+- Star Schema
+- Fact Tables
+- Dimension Tables
+- Primary Keys
+- Foreign Keys
+- Indexing
+- JOINs
+- GROUP BY
+- Aggregate Functions
+- CASE Statements
+- DISTINCT
+- Subqueries
+- Window Functions
+- `SUM() OVER()`
+- `DENSE_RANK()`
+- Running Totals
+- Ranking
+- Analytical Queries
+- Pre-aggregated Summary Tables
+- Healthcare KPI Analysis
 
 ---
 
@@ -196,18 +196,18 @@ This project demonstrates several important SQL and Data Warehousing concepts:
 
 The project calculates healthcare operational KPIs such as:
 
-* Total Encounters
-* Total Unique Patients
-* Emergency Visits
-* Average Waiting Time
-* Average Length of Stay
-* Total Treatment Cost
-* Average Treatment Cost
-* Medication Utilization
-* Medication Cost
-* Department Workload
-* Provider Workload
-* Top Diagnoses
+- Total Encounters
+- Total Unique Patients
+- Emergency Visits
+- Average Waiting Time
+- Average Length of Stay
+- Total Treatment Cost
+- Average Treatment Cost
+- Medication Utilization
+- Medication Cost
+- Department Workload
+- Provider Workload
+- Top Diagnoses
 
 ---
 
@@ -219,17 +219,17 @@ The project includes a pre-aggregated table:
 
 This table summarizes healthcare activity by:
 
-* Date
-* Department
+- Date
+- Department
 
 and contains metrics such as:
 
-* Total encounters
-* Unique patients
-* Emergency encounters
-* Average waiting time
-* Average length of stay
-* Total treatment cost
+- Total encounters
+- Unique patients
+- Emergency encounters
+- Average waiting time
+- Average length of stay
+- Total treatment cost
 
 This approach demonstrates how pre-aggregated data can support analytical workloads and dashboard reporting.
 
@@ -279,49 +279,64 @@ This project is intended for educational and portfolio purposes and is **not des
 
 Possible future extensions include:
 
-* Add hospital and facility dimensions.
-* Add laboratory test fact tables.
-* Add radiology and medical imaging events.
-* Add patient readmission analysis.
-* Add patient flow analysis.
-* Add healthcare quality indicators.
-* Add appointment analytics.
-* Add bed occupancy analytics.
-* Add emergency department performance analytics.
-* Build ETL pipelines using Python.
-* Implement incremental data loading.
-* Connect the warehouse to Power BI.
-* Connect the warehouse to Tableau.
-* Build an interactive healthcare analytics dashboard.
+- Add hospital and facility dimensions.
+- Add laboratory test fact tables.
+- Add radiology and medical imaging events.
+- Add patient readmission analysis.
+- Add patient flow analysis.
+- Add healthcare quality indicators.
+- Add appointment analytics.
+- Add bed occupancy analytics.
+- Add emergency department performance analytics.
+- Build ETL pipelines using Python.
+- Implement incremental data loading.
+- Connect the warehouse to Power BI.
+- Connect the warehouse to Tableau.
+- Build an interactive healthcare analytics dashboard.
 
 ---
 
 ## Technologies
 
-* SQL
-* PostgreSQL-style SQL
-* Relational Database
-* Data Warehousing
-* Star Schema
-* Analytical SQL
-* Window Functions
-* Data Analytics
+- SQL
+- PostgreSQL-style SQL
+- Relational Database
+- Data Warehousing
+- Star Schema
+- Analytical SQL
+- Window Functions
+- Data Analytics
 
 ---
+
+## Project Structure
+
+```text
+healthcare-data-warehouse-star-schema/
+│
+├── healthcare_data_warehouse.sql
+├── README.md
+│
+├── assets/
+│   └── erd/
+│       └── healthcare_data_warehouse_erd.png
+│
+└── screenshots/
+```
 
 ---
 
 ## Author
 
-**Abdelrahman Osman**
+**Abdelrahman Ahmed**
 
 Health Informatics Student | Data Analytics Enthusiast
 
 Interested in:
 
-* Health Informatics
-* Healthcare Analytics
-* SQL
-* Data Analytics
-* Data Warehousing
-* Healthcare IT
+- Health Informatics
+- Healthcare Analytics
+- SQL
+- Data Analytics
+- Data Warehousing
+- Healthcare IT
