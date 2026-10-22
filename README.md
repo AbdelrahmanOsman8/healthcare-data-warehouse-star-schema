@@ -66,7 +66,7 @@ The warehouse follows a **Star Schema** architecture.
 
 The Entity Relationship Diagram represents the relationships between the dimensions and fact tables.
 
-![Healthcare Data Warehouse ERD](assets/erd/healthcare_data_warehouse_erd.png)
+![Healthcare Data Warehouse ERD](images/healthcare_data_warehouse_schema.png)
 
 ---
 
