@@ -124,7 +124,17 @@ CREATE TABLE healthcare_dw.fact_patient_encounter (
     encounter_type VARCHAR(30) NOT NULL,
     length_of_stay INTEGER DEFAULT 0,
     wait_time_minutes INTEGER,
-    treatment_cost DECIMAL(14,2)
+    treatment_cost DECIMAL(14,2),
+    CONSTRAINT fk_encounter_date
+        FOREIGN KEY (date_key) REFERENCES healthcare_dw.dim_date(date_key),
+    CONSTRAINT fk_encounter_patient
+        FOREIGN KEY (patient_key) REFERENCES healthcare_dw.dim_patient(patient_key),
+    CONSTRAINT fk_encounter_provider
+        FOREIGN KEY (provider_key) REFERENCES healthcare_dw.dim_provider(provider_key),
+    CONSTRAINT fk_encounter_department
+        FOREIGN KEY (department_key) REFERENCES healthcare_dw.dim_department(department_key),
+    CONSTRAINT fk_encounter_diagnosis
+        FOREIGN KEY (diagnosis_key) REFERENCES healthcare_dw.dim_diagnosis(diagnosis_key)
 );
 
 
@@ -145,7 +155,17 @@ CREATE TABLE healthcare_dw.fact_medication (
     quantity INTEGER NOT NULL,
     dosage VARCHAR(50),
     duration_days INTEGER,
-    medication_cost DECIMAL(14,2)
+    medication_cost DECIMAL(14,2),
+    CONSTRAINT fk_medication_event_date
+        FOREIGN KEY (date_key) REFERENCES healthcare_dw.dim_date(date_key),
+    CONSTRAINT fk_medication_event_patient
+        FOREIGN KEY (patient_key) REFERENCES healthcare_dw.dim_patient(patient_key),
+    CONSTRAINT fk_medication_event_provider
+        FOREIGN KEY (provider_key) REFERENCES healthcare_dw.dim_provider(provider_key),
+    CONSTRAINT fk_medication_event_medication
+        FOREIGN KEY (medication_key) REFERENCES healthcare_dw.dim_medication(medication_key),
+    CONSTRAINT fk_medication_event_encounter
+        FOREIGN KEY (encounter_key) REFERENCES healthcare_dw.fact_patient_encounter(encounter_key)
 );
 
 
@@ -949,6 +969,14 @@ GROUP BY
     dep.department_name,
     dep.department_type;
 
+ALTER TABLE healthcare_dw.summary_daily_patient_activity
+    ADD CONSTRAINT pk_summary_daily_patient_activity
+        PRIMARY KEY (date_key, department_key),
+    ADD CONSTRAINT fk_summary_activity_date
+        FOREIGN KEY (date_key) REFERENCES healthcare_dw.dim_date(date_key),
+    ADD CONSTRAINT fk_summary_activity_department
+        FOREIGN KEY (department_key) REFERENCES healthcare_dw.dim_department(department_key);
+
 
 -- ============================================================
 -- 8. ANALYTICAL QUERIES
@@ -1650,4 +1678,3 @@ ORDER BY
     d.year,
     d.month_number,
     provider_rank;
-
